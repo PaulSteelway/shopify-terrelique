@@ -1,0 +1,83 @@
+
+* {
+	margin: 0px;
+	padding: 0px;
+  box-sizing:border-box;
+}
+html {
+  font-size: 16px;
+  line-height: 1;
+}
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+a {
+	text-decoration: none ;
+  color: inherit;
+  display: inline-block;
+  .transition;
+}
+ul {
+	list-style: none;
+}
+input, select, button, textarea {
+	outline: none;
+  border: none;
+}
+button {
+  background: none;
+  display:inline-block;
+  color: inherit;
+  font-family: inherit;
+	cursor: pointer;
+  .transition;
+}
+hr {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  border-width: 0px;
+}
+h2 {
+  font-family: 'Termina';
+  font-weight: 700;
+}
+@colDark : #365B58;
+@colYell : #EBEFA5;
+@colPink : #FFF9EF;
+.dflex {
+  .flex;
+}
+.transition(@a: 0.4s) {
+  -webkit-transition: all @a;
+  -moz-transition: all @a;
+  -o-transition: all @a;
+  transition: all @a;
+}
+ ///////////////////////////////////////////////////////////////////
+ .flex(@justify: flex-start, @align: center) {
+	display: flex;
+	justify-content: @justify;
+	align-items: @align;
+}
+ // space-around
+ // space-between
+ // flex-start
+ // flex-end
+ // stretch
+ // flex-wrap: wrap;
+
+  // display: grid;
+  // grid-template-columns:1fr 1fr 1fr;
+  // grid-template-rows:  300px 300px 300px;
+
+// :-moz-placeholder {color: #000;}
+// ::-moz-placeholder {color: #000;}
+// :-ms-input-placeholder {color: #000;}
+// ::-webkit-input-placeholder {color: #000;}
+
+//~"calc(100% - 800px)";
+
+//.nav li:not(:last-child) {border-right: 1px solid #666;} удаляем у последнего элемента бордер
+

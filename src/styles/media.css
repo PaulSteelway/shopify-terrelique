@@ -1,0 +1,132 @@
+@media only screen and (max-width: 1025px) {
+  .fotos {
+    overflow: hidden;
+  }
+  footer:after {
+    bottom: 95%;
+  }
+}
+/*-------------------------------------------*/
+@media only screen and (max-width: 769px) {
+  .caruselSection {
+    display: none;
+  }
+}
+/*-------------------------------------------*/
+@media only screen and (max-width: 600px) {
+  .navHeader {
+    display: none;
+  }
+  .topHeader {
+    font-size: 13px;
+  }
+  .sliderItem__imgDecor {
+    display: none !important;
+  }
+  .sliderItem__imgDecor_sm {
+    display: block !important;
+  }
+  .sliderSection {
+    max-height: 888px;
+  }
+  .sliderItem__img {
+    max-height: 888px;
+    right: -140px;
+    top: 0;
+  }
+  .slider .prev,
+  .slider .next {
+    top: 100px;
+    width: 55px;
+    height: 90px;
+  }
+  .slider .prev svg,
+  .slider .next svg {
+    width: 15px;
+  }
+  .sliderItem__title {
+    font-size: 45px;
+  }
+  .sliderItem__text {
+    font-size: 14px;
+  }
+  .stick {
+    top: 100px;
+  }
+  .partnerSection {
+    padding: 30px 20px;
+  }
+  .partnerList li:not(:last-child) {
+    margin-right: 0;
+  }
+  .section__title {
+    font-size: 28px;
+  }
+  .catalogSection {
+    padding: 50px 20px;
+  }
+  .catalogSection .dflex {
+    display: block;
+  }
+  .catalogSection .prev,
+  .catalogSection .next {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #FFF9EF;
+    border: 2px solid #365B58;
+    width: 55px;
+    height: 90px;
+  }
+  .catalogSection .prev svg,
+  .catalogSection .next svg {
+    width: 15px;
+    fill: #365B58;
+    stroke: #365B58;
+  }
+  .catalogSection .next {
+    left: -20px;
+    border-top-right-radius: 95px;
+    border-bottom-right-radius: 95px;
+  }
+  .catalogSection .prev {
+    right: -20px;
+    border-top-left-radius: 95px;
+    border-bottom-left-radius: 95px;
+  }
+  .catalogSection .prev svg {
+    transform: rotate(180deg);
+  }
+  .whySection .dflex {
+    display: block;
+  }
+  .whySection__item {
+    width: 100%;
+  }
+  .whyItem__text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .fotosSection__wrap {
+    display: block;
+  }
+  .fotosSection__tag {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+  .formSection {
+    background: red;
+  }
+  .mainForm {
+    max-width: 95%;
+    margin: auto;
+  }
+  .mainForm h2 {
+    font-size: 26px;
+  }
+  .mainForm input {
+    width: 85%;
+  }
+}
