@@ -1,21 +1,40 @@
 <header>
-    <div class="topHeader">
-        LIMITED TIME ONLY: TAKE 15% OFF BUBBLEGUM
-    </div>
+    <a href="/products/relaxation-slips" class="topHeader">
+            LIMITED TIME ONLY: TAKE 15% OFF BUBBLEGUM
+    </a>
     <nav>
+
         <button class="mob"><span></span></button>
         <ul class="navHeader">
-            <li><a href="product.html">SHOP</a></li>
+            {% for link in section.settings.header_left.links %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+
+            </li>
+            {% endfor %}
+            <!-- <li><a href="product.html">SHOP</a></li>
             <li><a href="moods.html">MOODS</a></li>
-            <li><a href="">SACRED SPACES</a></li>
+            <li><a href="">SACRED SPACES</a></li> -->
         </ul>
         <div class="logo"><a href="/">terrelique</a></div>
         <ul class="navHeader">
-            <li><a href="">OUR STORY</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+        {% for link in section.settings.header_right.links %}
+            <li>
+                <a href="{{ link.url }}"{% if link.current %} class="active" {%endif%} >{{ link.title }}</a>
+
+            </li>
+            {% endfor %}
         </ul>
+        <!--cart button-->
+
+<!--end cart button-->
         <button class="btnCart">
-            <span>1</span>
+            
+            <span class="cart-count">
+            {% if cart.item_count > 0%}
+            {{ cart.item_count }}
+            {%endif%}
+            </span>
             <svg class="btnCart__svg" width="32" height="32"  fill="none" >
                 <use xlink:href="#cartShose"/>
             </svg>
@@ -26,11 +45,12 @@
         </button>
     </nav>
     <ul class="nav__mob">
-        <li><a href="catalog.html">SHOP</a></li>
-        <li><a href="moods.html">MOODS</a></li>
-        <li><a href="">SACRED SPACES</a></li>
-        <li><a href="">SACRED SPACES</a></li>
-        <li>
+    {% for link in section.settings.header_mobile.links %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+
+            </li>
+            {% endfor %}
             <a href="">
                 <svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17 3.15438C21.539 3.15438 22.0773 3.17188 23.8708 3.25646C28.4778 3.47229 30.6297 5.7225 30.8394 10.43C30.9216 12.2748 30.9372 12.829 30.9372 17.5015C30.9372 22.1754 30.9202 22.7281 30.8394 24.5729C30.6283 29.276 28.4821 31.5306 23.8708 31.7465C22.0773 31.831 21.5418 31.8485 17 31.8485C12.461 31.8485 11.9227 31.831 10.1306 31.7465C5.51225 31.5292 3.37167 29.2688 3.162 24.5715C3.07983 22.7267 3.06283 22.174 3.06283 17.5C3.06283 12.8275 3.08125 12.2748 3.162 10.4285C3.37308 5.7225 5.51933 3.47083 10.1306 3.255C11.9241 3.17188 12.461 3.15438 17 3.15438ZM17 0C12.3831 0 11.8051 0.0204167 9.99175 0.105C3.81792 0.396667 0.38675 3.92292 0.103417 10.2842C0.0198333 12.1523 0 12.7473 0 17.5C0 22.2527 0.0198333 22.8492 0.102 24.7158C0.385333 31.0713 3.81083 34.6033 9.99033 34.895C11.8051 34.9796 12.3831 35 17 35C21.6169 35 22.1963 34.9796 24.0097 34.895C30.1778 34.6033 33.6175 31.0771 33.8966 24.7158C33.9802 22.8492 34 22.2527 34 17.5C34 12.7473 33.9802 12.1523 33.898 10.2856C33.6203 3.93604 30.1906 0.398125 24.0111 0.106458C22.1963 0.0204167 21.6169 0 17 0V0ZM17 8.51375C12.1791 8.51375 8.2705 12.5373 8.2705 17.5C8.2705 22.4627 12.1791 26.4877 17 26.4877C21.8209 26.4877 25.7295 22.4642 25.7295 17.5C25.7295 12.5373 21.8209 8.51375 17 8.51375ZM17 23.3333C13.8706 23.3333 11.3333 20.7229 11.3333 17.5C11.3333 14.2785 13.8706 11.6667 17 11.6667C20.1294 11.6667 22.6667 14.2785 22.6667 17.5C22.6667 20.7229 20.1294 23.3333 17 23.3333ZM26.0752 6.05938C24.9475 6.05938 24.0337 7 24.0337 8.15938C24.0337 9.31875 24.9475 10.2594 26.0752 10.2594C27.2014 10.2594 28.1137 9.31875 28.1137 8.15938C28.1137 7 27.2014 6.05938 26.0752 6.05938Z" fill="#294744"/>
@@ -40,6 +60,7 @@
         </li>
     </ul>
 </header>
+
 <div class="cart">
     <button class="close">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,20 +73,36 @@
     <svg class=cartDecor width="182" height="15" viewBox="0 0 182 15" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M181 4.61034C178.581 4.4799 176.102 5.41309 174.143 7.43801C173.119 8.49362 172.314 9.73586 171.375 10.8657C170.729 11.7009 170.017 12.4891 169.246 13.2238C168.224 14.1329 166.81 14.2533 165.711 13.5328C165.051 13.0829 164.475 12.5321 164.007 11.9033C162.93 10.4985 162.012 8.97125 160.903 7.58451C157.164 2.91254 151.148 2.81019 147.219 7.34168C145.984 8.76454 144.905 10.3078 143.663 11.7247C142.63 12.9047 141.559 13.4646 140.507 13.4144C140.507 13.4004 140.507 13.3863 140.507 13.3703C140.188 13.3545 139.872 13.2992 139.568 13.2057C138.87 12.9248 138.186 12.3649 137.537 11.526C136.638 10.366 135.863 9.11775 135.016 7.92567C133.917 6.37638 132.629 4.9796 130.785 4.21298L130.736 4.19492C129.892 3.79323 128.98 3.53506 128.042 3.43231L127.52 3.29585V3.39418C125.178 3.29384 122.767 4.19693 120.84 6.13756C119.803 7.18113 118.994 8.42137 118.051 9.54922C117.35 10.3881 116.679 11.2691 115.86 11.9936C114.633 13.0773 112.945 13.0231 111.724 11.9334C111.195 11.4389 110.721 10.8941 110.31 10.3078C109.363 9.01741 108.522 7.65073 107.523 6.39645C103.797 1.72046 97.7896 1.59804 93.8395 6.10345C92.9878 7.08279 92.2404 8.15044 91.4078 9.14986C90.769 9.90845 90.1493 10.6992 89.3934 11.3434C87.9858 12.5475 86.2206 12.4792 84.9216 11.1728C84.4993 10.731 84.1108 10.2616 83.759 9.76797C82.7986 8.41334 81.9085 7.00854 80.8651 5.71412C80.4109 5.14752 79.8902 4.63116 79.3128 4.17485C78.1106 3.14973 76.6045 2.49568 74.9965 2.30045C74.8231 2.26728 74.6439 2.27209 74.4727 2.31449C72.0516 2.18605 69.5751 3.11724 67.616 5.14216C66.5918 6.19777 65.7848 7.44001 64.8478 8.57188C64.2006 9.40625 63.4889 10.1944 62.7184 10.9299C61.6963 11.837 60.2824 11.9595 59.1836 11.239C58.5234 10.7883 57.9476 10.2369 57.4801 9.60742C56.4026 8.20262 55.4849 6.67741 54.3754 5.29067C50.6362 0.61669 44.6207 0.51434 40.6919 5.04583C39.4569 6.4707 38.3773 8.01197 37.1359 9.42881C36.1031 10.6088 35.032 11.1708 33.978 11.1186V11.0443C33.5427 11.0234 33.1153 10.9267 32.7174 10.7594C32.0406 10.3705 31.4598 9.84976 31.0138 9.23214C30.1152 8.07218 29.3401 6.82391 28.4926 5.63183C27.4876 4.21499 26.327 2.9306 24.7279 2.13388C23.6948 1.55334 22.5375 1.19686 21.34 1.09031L20.9972 1C20.9972 1.02408 20.9972 1.04616 20.9972 1.06823C18.6548 0.96789 16.2443 1.87098 14.3172 3.81161C13.2824 4.85518 12.4711 6.09542 11.5277 7.22327C10.8272 8.06214 10.1585 8.94315 9.33659 9.66763C8.11218 10.7513 6.42144 10.6951 5.2013 9.60542C4.67313 9.11108 4.20006 8.56705 3.78951 7.98187C2.8398 6.68945 1.99869 5.32478 1 4.0705" stroke="#FFF9EF" stroke-miterlimit="10"/>
     </svg>
-    <div class="cartItem">
-        <img class="cartItem__img" src="{{ 'cartImg.jpg' | asset_url }}" alt="">
+    <div id="cart-items">
+        {% if cart.item_count > 0 %}
+
+    {% for item in cart.items %}
+    
+    <div class="cartItem" data-cart-item-product-id="{{ item.id }}" data-cart-item="{{ item.key }}">
+        <img class="cartItem__img" src="{{ item.image | img_url: '112x' }}" alt="">
         <div class="cartItem__body">
-            <h3 class="cartItem__title">Relaxation Slipper</h3>
-            <div class="cartItem__option"><span>BUBBLEGUM</span> <br> <span>WOMEN’S 9</span></div>
+            <h3 class="cartItem__title">{{ item.product.title }}</h3>
+            <div class="cartItem__option">
+            {%- for option in item.options_with_values -%}
+            <span>
+            {{ option.value }}
+            </span>
+            <br>
+            
+          {%- endfor -%}
+            </div>
             <div class="dflex">
                 <div class="productPrice__quantity">
-                    <button>-</button>
-                    <input type="text" name="quantity" value="11">
-                    <button>+</button>
+                    <button class="minus" data-qty="qty-{{ item.id }}">-</button>
+                    <input type="text" id="qty-{{ item.id }}" name="quantity" value="{{item.quantity}}">
+                    <button class="plus" type="button" data-qty="qty-{{ item.id }}">+</button>
                 </div>
-                <button class="cartRemove">REMOVE</button>
+                <button class="cartRemove" data-id="{{item.id}}">REMOVE</button>
             </div>
         </div>
+    </div>
+    {% endfor %}
+    {%endif%}
     </div>
     <div class="cartItemAdd">
         <button class="cartItemAdd__btn">+</button>
@@ -81,27 +118,31 @@
 
             </button>
             <div class="cartItemAdd__body_p">Add a pair and save $8!</div>
-            <select class="select" name="size">
-                <option disabled>WOMEN’s 9</option>
-                <option value="WOMEN’s 9">WOMEN’s 9</option>
-                <option value="WOMEN’s 11">WOMEN’s 11</option>
-                <option value="WOMEN’s 21">WOMEN’s 21</option>
+            {% for product_option in section.settings.product.options_with_values %}
+            <select class="select"  name="{{product_option.name}}" id="card-{{product_option.name}}">
+            <option disabled >Choose {{product_option.name}}</option>
+            {% for value in product_option.values %}
+            <option value="{{value}}">{{value}}</option>
+            {% endfor %}
             </select>
-            <select class="select" name="colors">
-                <option disabled> <span style="background-color: #FFBEDD;"></span>BUBBLEGUM</option>
-                <option value="WOMEN’s 9"> BUBBLEGUM</option>
-                <option value="WOMEN’s 11"> green</option>
-                <option value="WOMEN’s 21"> WHITE 21</option>
-            </select>
-            <button class="cartItemAdd__body_btn">ADD TO CART</button>
+            {% endfor %}
+            <button class="cartItemAdd__body_btn" id="add_to_cart_btn">ADD TO CART</button>
         </div>
     </div>
     <svg class=cartDecor width="182" height="15" viewBox="0 0 182 15" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M181 4.61034C178.581 4.4799 176.102 5.41309 174.143 7.43801C173.119 8.49362 172.314 9.73586 171.375 10.8657C170.729 11.7009 170.017 12.4891 169.246 13.2238C168.224 14.1329 166.81 14.2533 165.711 13.5328C165.051 13.0829 164.475 12.5321 164.007 11.9033C162.93 10.4985 162.012 8.97125 160.903 7.58451C157.164 2.91254 151.148 2.81019 147.219 7.34168C145.984 8.76454 144.905 10.3078 143.663 11.7247C142.63 12.9047 141.559 13.4646 140.507 13.4144C140.507 13.4004 140.507 13.3863 140.507 13.3703C140.188 13.3545 139.872 13.2992 139.568 13.2057C138.87 12.9248 138.186 12.3649 137.537 11.526C136.638 10.366 135.863 9.11775 135.016 7.92567C133.917 6.37638 132.629 4.9796 130.785 4.21298L130.736 4.19492C129.892 3.79323 128.98 3.53506 128.042 3.43231L127.52 3.29585V3.39418C125.178 3.29384 122.767 4.19693 120.84 6.13756C119.803 7.18113 118.994 8.42137 118.051 9.54922C117.35 10.3881 116.679 11.2691 115.86 11.9936C114.633 13.0773 112.945 13.0231 111.724 11.9334C111.195 11.4389 110.721 10.8941 110.31 10.3078C109.363 9.01741 108.522 7.65073 107.523 6.39645C103.797 1.72046 97.7896 1.59804 93.8395 6.10345C92.9878 7.08279 92.2404 8.15044 91.4078 9.14986C90.769 9.90845 90.1493 10.6992 89.3934 11.3434C87.9858 12.5475 86.2206 12.4792 84.9216 11.1728C84.4993 10.731 84.1108 10.2616 83.759 9.76797C82.7986 8.41334 81.9085 7.00854 80.8651 5.71412C80.4109 5.14752 79.8902 4.63116 79.3128 4.17485C78.1106 3.14973 76.6045 2.49568 74.9965 2.30045C74.8231 2.26728 74.6439 2.27209 74.4727 2.31449C72.0516 2.18605 69.5751 3.11724 67.616 5.14216C66.5918 6.19777 65.7848 7.44001 64.8478 8.57188C64.2006 9.40625 63.4889 10.1944 62.7184 10.9299C61.6963 11.837 60.2824 11.9595 59.1836 11.239C58.5234 10.7883 57.9476 10.2369 57.4801 9.60742C56.4026 8.20262 55.4849 6.67741 54.3754 5.29067C50.6362 0.61669 44.6207 0.51434 40.6919 5.04583C39.4569 6.4707 38.3773 8.01197 37.1359 9.42881C36.1031 10.6088 35.032 11.1708 33.978 11.1186V11.0443C33.5427 11.0234 33.1153 10.9267 32.7174 10.7594C32.0406 10.3705 31.4598 9.84976 31.0138 9.23214C30.1152 8.07218 29.3401 6.82391 28.4926 5.63183C27.4876 4.21499 26.327 2.9306 24.7279 2.13388C23.6948 1.55334 22.5375 1.19686 21.34 1.09031L20.9972 1C20.9972 1.02408 20.9972 1.04616 20.9972 1.06823C18.6548 0.96789 16.2443 1.87098 14.3172 3.81161C13.2824 4.85518 12.4711 6.09542 11.5277 7.22327C10.8272 8.06214 10.1585 8.94315 9.33659 9.66763C8.11218 10.7513 6.42144 10.6951 5.2013 9.60542C4.67313 9.11108 4.20006 8.56705 3.78951 7.98187C2.8398 6.68945 1.99869 5.32478 1 4.0705" stroke="#FFF9EF" stroke-miterlimit="10"/>
-    </svg>
+    </svg>  
+            <h3 class="dflex dflex_crt">Your discount code:</h3>
+            <h4 class="dflex dflex_crt" id="discounts">None</h4>
+            
     <div class="dflex dflex_crt">
+        
+        
         <span>SUBTOTAL</span>
-        <span>$52</span>
+        
+        <span class="cart-total">{{ cart.total_price | money }}</span>
     </div>
     <button class="btn__cart">CHECKOUT</button>
+    
 </div>
+

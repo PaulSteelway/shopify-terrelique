@@ -17,9 +17,13 @@
         <div class="dflex">
             <span class="copy">©terrelique 2020-2021</span>
             <ul class="nav__politic">
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Refund Policy</a></li>
-                <li><a href="">Terms of Service</a></li>
+             {% for link in section.settings.header_mobile.links %}
+            <li>
+                <a href="{{ link.url }}"{% if link.current %} class="active" {%endif%} >{{ link.title }}</a>
+
+            </li>
+            {% endfor %}
+               
             </ul>
             <div class="footerInfo">
                 <svg width="37" height="38">

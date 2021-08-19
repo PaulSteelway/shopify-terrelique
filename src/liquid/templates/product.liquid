@@ -1,0 +1,166 @@
+<div class="productWrap">
+            <div class="productWrap__item productWrap__item_un">
+                {% for image in product.images %}
+                {% if forloop.index == 1%}
+                <img src="{{ image | img_url: 'grande' }}" alt="" class="productWrap__item_img">
+                {%else%}
+                <img src="{{ image | img_url: 'medium' }}" alt="" class="productWrap__item_img">
+                {%endif%}
+                
+                {% endfor %}
+                
+            </div>
+            <div class="productWrap__item productWrap__item_dos">
+            <form method="post" action="/cart/add"  id="add-to-cart-{{ product.handle }}">
+            <input type="hidden" name="id" id="product-id" value="{{product.variants.first.id}}">
+                <h2 class="product__title">{{product.title}}</h2>
+                <div class="dflex">
+                    <div class="product__price product__price_old">{{ product.price }}</div>
+                    <div class="product__price">{{ product.price | money_with_currency }}</div>
+                </div>
+                <div class="product__rew">
+                    <div class="product__stars">
+                        <svg width="17" height="17">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="17" height="17">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="17" height="17">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="17" height="17">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="17" height="17">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                    </div>
+                    {{product.rewiews}} REVIEWS
+                </div>
+                <div class="product__text">
+                    {{product.description}}
+                </div>
+                <style>
+                .color-Marshmallow{
+                    background:#332!important;
+                }
+                .color-Chai-Latte{
+                    background:#e2d7c8!important;
+                }
+                .color-Black-Licorice{
+                    background:#000!important;
+                }
+                .color-Citrine{
+                    background:#fff764!important;
+                }
+                .color-Bubble-Gum{
+                    background:#e8a7bb!important;
+                }
+                .color-Blueberry{
+                    background:#1a2a52!important;
+                }
+                .color-Aloe{
+                    background:#71d23f!important;
+                }
+                </style>
+                
+                {% for product_option in product.options_with_values %}
+                
+                {%if product_option.name == 'Color'%}
+
+            
+                <div class="product__colors">
+
+                    <p style="text-decoration:uppercase">{{product_option.name}} / <span id="color_name">MARSHMALLOW</span></p>
+                            <div class="dflex">
+                                {% for value in product_option.values %}
+                                
+                                
+                                <div class="colorInp">
+                                    <input type="radio" value="{{ value | replace: ' ', '-'}}" id="col-{{ value | replace: ' ', '-'}}" class="var_value colorius" name="color">
+                                    <label for="col-{{ value | replace: ' ', '-'}}" style="background:{{ value | replace: ' ', '-'}};" class=" color-{{value | replace: ' ', '-'}}"></label>
+                                </div>
+        
+                                {% endfor %}
+                            </div>
+                </div>
+                {% endif %}
+                {%if product_option.name == 'Size'%}
+            <div class="product__size">
+                    <p>{{product_option.name}} / <span>WOMEN’s 9</span> | <span id="size_name">EU 39</span> </p>
+                    <div class="dflex dflexSize">
+                        {% assign count = 0%}
+                          {% for value in product_option.values %}
+                          {% assign count = count | plus: 1 %}
+                        <div class="sizeInp">
+                            <input type="radio" id="size-{{count}}" value="{{ value }}" data-var="{{value.id}}" class="var_value size_options" name="size">
+                            <label for="size-{{count}}">{{value}}</label>
+                        </div>
+                           {% endfor %}
+                    </div>
+                    <button type="button" class="product__sizeBtn">Sizing chart</button>
+                </div>
+            {% endif%}
+{% endfor %}
+
+
+
+                <div class="product__footer">
+                    <div class="productPrice__quantity">
+                        <a href="#" class="btn-minus" data-qty="btn-quantity-{{product.id}}">-</a>
+                        <input type="text" name="quantity" id="btn-quantity-{{product.id}}" value="12">
+                        <a href="#" class="btn-plus" data-qty="btn-quantity-{{product.id}}" >+</a>
+                    </div>
+                    <button type="submit" name="add" data-add-to-cart  class="submitBtn">ADD TO CART</button>
+                </div>
+                <p class="freeShp">free shipping and returns!</p>
+                <hr class="detailsDecor">
+                <details  >
+                    <summary>PRODUCT DETAILS</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                <details  >
+                    <summary>RETURNS & EXCHANGES</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                <details >
+                    <summary>CARE GUIDE</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                </form>
+                {% section 'bundle'%}
+            </div>
+        </div>
+        {% section 'whysection' %}
+        {% section 'carousel' %}
+        <section class="storySection">
+            {% section 'ourstory' %}
+        </section>
+        {% section 'rewiews' %}
+
+        {% section 'foto' %}
+
+        {% section 'subscribe' %}
+
+                <style>.STP-tiers{display:none!important}</style>
+
+    <script>
+    let variantes = []
+    {%for variant in product.variants%}
+    variantes.push({"key":"{{variant.id}}", "value":"{{variant.title}}"})
+        
+    {%endfor%}    
+    </script>

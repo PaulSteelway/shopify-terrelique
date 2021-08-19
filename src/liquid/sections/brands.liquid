@@ -1,0 +1,33 @@
+<section class="partnerSection">
+    <ul class="partnerList">
+    {% for brand in section.blocks%}
+    <li>
+    
+            <picture>
+                <source srcset="{{ brand.settings.imager | img_url: 'master' }} 2x, {{ brand.settings.imager | img_url: 'master' }} 1x" />
+                <img src="{{ brand.settings.imager | img_url: 'master' }}" alt="  " />
+            </picture>
+        </li>
+    {%endfor%}
+        
+    </ul>
+</section>
+{% schema %}
+{
+    "name":"Brands",
+    "blocks": [
+	         {
+               "type": "slide",
+               "name": "Brand",
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager",
+                   "label": "Slider Image"
+                 }
+
+               ]
+             }
+             ]
+}
+{% endschema %}

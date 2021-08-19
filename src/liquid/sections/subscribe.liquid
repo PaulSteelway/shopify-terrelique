@@ -1,0 +1,13 @@
+<section class="formSection">
+{% form 'customer'  %}
+    <h2>don’t “slip” away</h2>
+    <p>Promise we only send good news like discounts and exclusive bundles! </p>
+    <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+    <input type="email" id="contact_email" class="newsletter input-lg" name="contact[email]" placeholder="{{ settings.footer_newsletter_placeholder }}"/>
+    <button class="btn" type="submit"  onClick="$.fancybox.close(); $.fancybox('#Promo');"><span class="text">SUBSCRIBE</span> <span class="decor" ></span></button>
+    
+{% endform %}
+    
+</section>
+
+sc

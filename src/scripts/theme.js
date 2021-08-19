@@ -18,29 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     ///////////////mob nav///////////////////////////////
 
-    /////////////////SCROLL////////////////////////////////
-    //  $(".nav, .nav_mob").on("click","a", function (event) {
-    //   //отменяем стандартную обработку нажатия по ссылке
-    //   event.preventDefault();
-
-    //   //забираем идентификатор бока с атрибута href
-    //   var id  = $(this).attr('href'),
-
-    //   //узнаем высоту от начала страницы до блока на который ссылается якорь
-    //     top = $(id).offset().top;
-
-    //   //анимируем переход на расстояние - top за 1500 мс
-    //   $('body,html').animate({scrollTop: top}, 1500);
-    // });
-    ////////////////END SCROLL////////////////////////////////
-
-    ////////////////ADD CLASS/////////////////////////////////
-    // $("#selectBackground ul li a").click(function(e) {
-    //   e.preventDefault();
-    //   $("#selectBackground ul li a").removeClass('active');
-    //   $(this).addClass('active');
-    // });
-    ///////////////END ADD CLASS//////////////////////////////
 
     $('.sliderJs').slick({
         slidesToShow: 1,
@@ -62,23 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }]
     });
 
-
     $('.slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        nextArrow: `<button class="next">
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            //infinite: false,
+            nextArrow: `<button class="next">
                   <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
                   </svg>
                 </button>`,
-        prevArrow: `<button class="prev">
+            prevArrow: `<button class="prev">
                   <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
                   </svg>
                 </button>`,
-    })
-
+        })
+        ////////////////////////////////////////////////////////////////////////
     function slickify() {
         $('.catalogSectionJs').slick({
             slidesToShow: 1,
@@ -105,23 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if ($(window).width() < 600) {
         slickify();
     }
-
+    ////////////////////////////////////////////////////////////////////////
 
     function slickify2() {
         $('.productWrap__item_un').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             //infinite: false,
-            nextArrow: `<button class="next">
-                  <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
-                  </svg>
-                </button>`,
-            prevArrow: `<button class="prev">
-                  <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
-                  </svg>
-                </button>`,
+            nextArrow: `<button class="prev">
+      <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
+      </svg>
+    </button>`,
+            prevArrow: `<button class="next">
+      <svg viewBox="0 0 25 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1252 35.5617L2.89577 18.9523L24.1252 2.38127L23.211 1.22769L0.494274 18.9523L23.2258 36.6769L24.1252 35.5617Z"  stroke-width="0.5"/>
+      </svg>
+      </button>`,
         })
     }
 
@@ -134,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ($(window).width() < 600) {
         slickify2();
     }
-
+    /////////////////////////////////////////////////////////////////////////
     $('.fotos').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -142,15 +118,35 @@ document.addEventListener('DOMContentLoaded', () => {
         autoplaySpeed: 2000,
         arrows: false,
         responsive: [{
-            breakpoint: 600,
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '30px',
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+        ]
+    });
+    ////////////////////////////////////////////////////////////////////////
+    $('.feedSlider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        responsive: [{
+            breakpoint: 800,
             settings: {
-                slidesToShow: 1,
-                centerMode: true,
-                centerPadding: '80px',
+                dots: false
             }
         }]
     });
-
+    ////////////////////////////////////////////////////////////////////////
     $('.select').each(function() {
         const _this = $(this),
             selectOption = _this.find('option'),
@@ -193,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let chooseItem = $(this).data('value');
 
                     $('select').val(chooseItem).attr('selected', 'selected');
+                    $(_this.wrap()).trigger("change");
                     selectHead.text($(this).find('span').text());
 
                     selectList.slideUp(duration);
@@ -205,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
+    //////////////////////////////////////////////////////////////////////
     $('.btnCart').on('click', function() {
         $('.cart').slideToggle();
         $(this).toggleClass('active');
@@ -214,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.cart').slideToggle();
         $('.btnCart').toggleClass('active');
     });
+
     ////////////////////////////////////////////////
     $('.cartItemAdd__btn').on('click', function() {
         $('.cartItemAdd').toggleClass('active');
@@ -221,4 +219,46 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.cartItemAdd__body_close').on('click', function() {
         $('.cartItemAdd').toggleClass('active');
     });
+    //////////////////////////////////////////////////
+    $('.product__sizeBtn').on('click', function() {
+        $('.overlay').toggleClass('active');
+
+    });
+    $('.closePopup').on('click', function() {
+        $('.overlay').toggleClass('active');
+
+    });
+    ///////////////////////////////////////////////////////////
+    const track = document.querySelectorAll('.slick-track')
+    const list = document.querySelectorAll('.slick-list')
+
+    window.onscroll = function() { fixTop() };
+    var stick = document.querySelectorAll('.stick')
+    var slider = document.querySelector('.sliderSection')
+
+
+    let Yk = slider.getBoundingClientRect()
+    let scrolltop = document.body.scrollTop + Yk.top
+    console.log(window.pageYOffset);
+    console.log(pageYOffset);
+
+    function fixTop() {
+        if ($(window).width() > 600) {
+            if (window.pageYOffset > 313 && window.pageYOffset < (slider.offsetHeight - 400)) { // 33px - высота "плашки"
+
+                stick.forEach(el => {
+
+                    if (pageYOffset === 400) {
+                        el.style.top = `260px`;
+                    } else {
+                        el.style.top = `${pageYOffset}px`;
+                    }
+                })
+            }
+        }
+
+
+    }
+
+
 }); // end DOMContentLoaded

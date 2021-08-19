@@ -1,1 +1,168 @@
 @import './style.scss';
+@import "./go-cart.scss";
+.shopify-policy__container {
+    padding: 10%;
+    max-width: 100%!important;
+    text-align: center;
+}
+
+.productPrice__quantity button {
+    height: 100%;
+    font-size: 18px;
+    color: #365B58;
+}
+
+.shopify-policy__title h1 {
+    margin: 0 0 75px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 60px;
+    font-family: 'Termina';
+    font-size: 48px;
+    letter-spacing: 0.025rem;
+}
+
+.shopify-policy__title h1::before {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 73%;
+    background: url(./politicaDecor.svg) no-repeat;
+}
+
+.shopify-policy__body {
+    margin: auto;
+    padding: 50px;
+    border: 2px solid #365B58;
+    text-align: left;
+}
+
+.shopify-policy__body p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.08rem;
+}
+
+.shopify-policy__body h3 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.d-none {
+    display: none;
+}
+
+.new-sub-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 13px;
+    padding: 8px 14px;
+    border: 1px solid #365b58;
+    border-radius: 3px;
+    font-size: 11px;
+    letter-spacing: .175rem;
+    font-weight: 700;
+    background: 0 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all .4s;
+}
+
+.contact-form {
+    max-width: 95%;
+    margin: auto;
+}
+
+.contact-form h2 {
+    font-size: 26px;
+}
+
+.contact-form input {
+    width: 85%;
+}
+
+.contact-form p {
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.contact-form {
+    max-width: 715px;
+    padding: 50px 0 40px;
+    margin: auto;
+    background: #EBEFA5;
+    border: 2px solid #365B58;
+    text-align: center;
+}
+
+.contact-form h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 75px;
+    font-family: 'Termina';
+    font-size: 35px;
+}
+
+.contact-form h2::before {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 23px;
+    width: 80%;
+    background: url(./titleDecor.svg);
+    background-size: cover;
+}
+
+.contact-form p {
+    max-width: 370px;
+    margin: 0 auto 13px;
+    letter-spacing: 0.08rem;
+}
+
+.contact-form input {
+    display: block;
+    width: 437px;
+    height: 45px;
+    margin: 0 auto 45px;
+    padding: 0 30px;
+    background: #FFF9EF;
+    border: 1.5px solid #294744;
+    border-radius: 3px;
+}
+
+.contact-form :-moz-placeholder {
+    color: rgba(41, 71, 68, 0.4);
+    letter-spacing: 0.19rem;
+    font-size: 12px;
+    font-family: Lato;
+}
+
+.contact-form ::-moz-placeholder {
+    color: rgba(41, 71, 68, 0.4);
+    letter-spacing: 0.19rem;
+    font-size: 12px;
+    font-family: Lato;
+}
+
+.contact-form :-ms-input-placeholder {
+    color: rgba(41, 71, 68, 0.4);
+    letter-spacing: 0.19rem;
+    font-size: 12px;
+    font-family: Lato;
+}
+
+.contact-form ::-webkit-input-placeholder {
+    color: rgba(41, 71, 68, 0.4);
+    letter-spacing: 0.19rem;
+    font-size: 12px;
+    font-family: Lato;
+}
+
+.contact-form .btn span.decor {
+    background: #FFF9EF;
+}

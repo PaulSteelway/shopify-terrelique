@@ -119,7 +119,7 @@ h2 {
 
 @font-face {
     font-family: 'Termina';
-    src: url('../Termina-Bold.otf');
+    src: url('./Termina-Bold.otf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -132,6 +132,7 @@ h2 {
 /*!!!!!!!!!!!!!!!!!!!STYLE CSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 body {
+    position: relative;
     font-family: 'Lato', sans-serif;
     background: #FFF9EF;
     font-size: 16px;
@@ -160,6 +161,7 @@ header {
 }
 
 .topHeader {
+    width: 100%;
     padding: 8px;
     background: #EBEFA5;
     font-size: 14px;
@@ -186,6 +188,7 @@ nav {
     font-size: 12px;
     letter-spacing: 0.08rem;
     color: #294744;
+    text-transform: uppercase;
 }
 
 .navHeader a.active:before {
@@ -194,7 +197,7 @@ nav {
     width: 100%;
     height: 8px;
     bottom: -10px;
-    background: url(../underline.svg) no-repeat;
+    background: url(./underline.svg) no-repeat;
     background-size: cover;
 }
 
@@ -240,6 +243,21 @@ nav {
     top: -3px;
 }
 
+.dflex_cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cartWR {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
 .cart {
     display: none;
     position: absolute;
@@ -264,6 +282,10 @@ nav {
 
 .cart .productPrice__quantity input {
     color: #FFF9EF;
+}
+
+.cart .new-select__item span {
+    color: #294744;
 }
 
 .close {
@@ -369,7 +391,7 @@ nav {
 }
 
 .cartItemAdd__body_otion .new-select::before {
-    background: url(../caretW.svg) no-repeat;
+    background: url(./caretW.svg) no-repeat;
 }
 
 .cartItemAdd__body_close {
@@ -442,23 +464,23 @@ nav {
 }
 
 .slider .next {
-    left: 0vw;
-    border-top-right-radius: 95px;
-    border-bottom-right-radius: 95px;
+    right: 0vw;
+    border-top-left-radius: 95px;
+    border-bottom-left-radius: 95px;
 }
 
 .slider .next::before {
     content: "";
 }
 
-.slider .prev {
-    right: 0vw;
-    border-top-left-radius: 95px;
-    border-bottom-left-radius: 95px;
+.slider .next svg {
+    transform: rotate(180deg);
 }
 
-.slider .prev svg {
-    transform: rotate(180deg);
+.slider .prev {
+    left: 0vw;
+    border-top-right-radius: 95px;
+    border-bottom-right-radius: 95px;
 }
 
 .productWrap__item_un .prev,
@@ -559,7 +581,7 @@ nav {
     bottom: -10px;
     width: 100%;
     height: 19px;
-    background: url(../titleDecor.svg) no-repeat;
+    background: url(./titleDecor.svg) no-repeat;
 }
 
 .sliderItem__title span {
@@ -667,7 +689,7 @@ nav {
     bottom: -30px;
     width: 100%;
     height: 19px;
-    background: url(../titleDecor.svg) no-repeat;
+    background: url(./titleDecor.svg) no-repeat;
 }
 
 .catalogSection__title {
@@ -733,7 +755,7 @@ nav {
     left: 0px;
     bottom: -45px;
     width: 100%;
-    background: url(../titleDecor2.svg) no-repeat;
+    background: url(./titleDecor2.svg) no-repeat;
     height: 36px;
 }
 
@@ -850,9 +872,13 @@ nav {
 }
 
 .sliderJs .next {
-    left: 0vw;
-    border-top-right-radius: 95px;
-    border-bottom-right-radius: 95px;
+    right: 0vw;
+    border-top-left-radius: 95px;
+    border-bottom-left-radius: 95px;
+}
+
+.sliderJs .next svg {
+    transform: rotate(180deg);
 }
 
 .sliderJs .next::before {
@@ -860,13 +886,9 @@ nav {
 }
 
 .sliderJs .prev {
-    right: 0vw;
-    border-top-left-radius: 95px;
-    border-bottom-left-radius: 95px;
-}
-
-.sliderJs .prev svg {
-    transform: rotate(180deg);
+    left: 0vw;
+    border-top-right-radius: 95px;
+    border-bottom-right-radius: 95px;
 }
 
 .sliderJsItem {
@@ -992,7 +1014,7 @@ footer:after {
     bottom: 100%;
     width: 100%;
     height: 80px;
-    background: url(../footerDecor.png) no-repeat;
+    background: url(./footerDecor.png) no-repeat;
     background-size: cover;
 }
 
@@ -1122,7 +1144,7 @@ footer:after {
     width: 100%;
     height: 40px;
     bottom: -40px;
-    background: url(../productDecor.svg) no-repeat;
+    background: url(./productDecor.svg) no-repeat;
     background-size: cover;
 }
 
@@ -1185,7 +1207,7 @@ footer:after {
     transform: translateX(-50%);
     height: 23px;
     width: 80%;
-    background: url(../titleDecor.svg);
+    background: url(./titleDecor.svg);
     background-size: cover;
 }
 
@@ -1433,11 +1455,6 @@ footer:after {
     background: none;
 }
 
-.productPrice__quantity button {
-    font-weight: 18px;
-    color: #365B58;
-}
-
 .submitBtn {
     width: 80%;
     height: 43px;
@@ -1497,13 +1514,13 @@ summary::after {
     box-sizing: border-box;
     width: 9px;
     height: 9px;
-    background: url(../plus.svg) no-repeat;
+    background: url(./plus.svg) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 details[open] summary::after {
-    background: url(../minus.svg) no-repeat;
+    background: url(./minus.svg) no-repeat;
 }
 
 .details__content {
@@ -1602,7 +1619,7 @@ details[open] summary::after {
     z-index: 1;
     width: 15px;
     height: 10px;
-    background: url(../caret.svg) no-repeat;
+    background: url(./caret.svg) no-repeat;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -1851,7 +1868,7 @@ details[open] summary::after {
 }
 
 .whySection__it_moods_col {
-    background: url(../moodsBg.png) no-repeat;
+    background: url(./moodsBg.png) no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1933,7 +1950,7 @@ details[open] summary::after {
 }
 
 .ourStorySection .product__title::before {
-    background: url(../ourStrDecor.svg) no-repeat;
+    background: url(./ourStrDecor.svg) no-repeat;
 }
 
 .ourStorySection .storySection__item {
@@ -1955,7 +1972,7 @@ details[open] summary::after {
     min-height: 100vh;
     padding-top: 150px;
     text-align: center;
-    background: url(../faq.jpg) no-repeat;
+    background: url(./faq.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -1977,7 +1994,7 @@ details[open] summary::after {
 
 .faqSection__img .product__title::before {
     width: 60%;
-    background: url(../faqDecor.svg) no-repeat;
+    background: url(./faqDecor.svg) no-repeat;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -2036,7 +2053,7 @@ details[open] summary::after {
 
 .blogSection .product__title::before {
     width: 60%;
-    background: url(../blogDecor.svg) no-repeat;
+    background: url(./blogDecor.svg) no-repeat;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -2242,7 +2259,7 @@ details[open] summary::after {
     left: 50%;
     transform: translateX(-50%);
     width: 73%;
-    background: url(../politicaDecor.svg) no-repeat;
+    background: url(./politicaDecor.svg) no-repeat;
 }
 
 .politicaSection__info {
@@ -2281,7 +2298,7 @@ details[open] summary::after {
     left: 50%;
     transform: translateX(-50%);
     width: 73%;
-    background: url(../politicaDecor.svg) no-repeat;
+    background: url(./politicaDecor.svg) no-repeat;
 }
 
 .prSectionInfo {
@@ -2318,6 +2335,74 @@ details[open] summary::after {
 .prSectionInfo__img_dos {
     left: -150px;
     top: 75%;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    z-index: 888;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 249, 239, 0.7);
+}
+
+.overlay.active {
+    display: block;
+}
+
+.closePopup {
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 825px;
+    padding: 45px;
+    border: 2px solid #365B58;
+    background: #FFF9EF;
+}
+
+.popup h2 {
+    display: block;
+    font-size: 42px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.popup .close {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    font-size: 18px;
+}
+
+table td {
+    padding-bottom: 10px;
+}
+
+table .th td {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.175rem;
+    padding-bottom: 15px;
+}
+
+span.td {
+    display: inline-block;
+}
+
+span.td:first-child {
+    margin-right: 52px;
 }
 
 
@@ -2461,6 +2546,18 @@ details[open] summary::after {
     .prSectionInfo__img_dos {
         left: auto;
         right: -20px;
+    }
+    .popup {
+        top: 10vh;
+        width: 90%;
+        padding: 20px;
+    }
+    table {
+        font-size: 16px;
+        text-align: center;
+    }
+    .tdHide {
+        display: none !important;
     }
 }
 

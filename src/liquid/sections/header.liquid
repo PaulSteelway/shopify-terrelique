@@ -1,1 +1,38 @@
-{% render 'header' %}
+{% render 'header' %} 
+
+
+{% schema %} 
+{
+    "name": "Header",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "header_left",
+            "label": "Left header"
+        },
+        {
+            "type": "link_list",
+            "id": "header_right",
+            "label": "Right header"
+        },
+        {
+            "type": "link_list",
+            "id": "header_mobile",
+            "label": "Mobile header"
+        },
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        },
+        {
+            "type": "product",
+            "id": "product",
+            "label": "product"
+        }
+        
+    ]
+    
+} 
+{% endschema %}

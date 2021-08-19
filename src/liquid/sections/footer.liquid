@@ -1,1 +1,26 @@
 {% render 'footer' %}
+{% schema %} 
+{
+    "name": "Footer",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "header_left",
+            "label": "Top footer menu"
+        },
+        {
+            "type": "url",
+            "id": "contact_us",
+            "label": "Contact link"
+        },
+        {
+            "type": "link_list",
+            "id": "header_mobile",
+            "label": "Back footer menu"
+        }
+        
+    ]
+    
+} 
+{% endschema %}

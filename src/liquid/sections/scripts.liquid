@@ -1,2 +1,403 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" > </script> 
+<script type = "text/javascript" src = "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" ></script>
+
+<script>
+const itemscard = document.getElementById('cart-items')
+let plus,minus,s,lk,btn_plus,btn_minus,opti,tostart, forend,exites,cartCount,cartTotal
+function init(){
+plus = document.getElementsByClassName('plus')
+minus = document.getElementsByClassName('minus')
+s = document.getElementsByClassName('colorius');
+lk = document.getElementsByClassName('size_options')
+btn_plus = document.getElementsByClassName('btn-plus')
+btn_minus = document.getElementsByClassName('btn-minus')
+opti = document.getElementsByClassName('var_value');
+remove = document.getElementsByClassName('cartRemove')
+cartCount = document.getElementsByClassName('cart-count')[0]
+cartTotal = document.getElementsByClassName('cart-total')[0]
+disconts = ['dynamicduo (save $8)','threecheers (save $14)','fabfour (save $20)']
+disString = document.getElementById('discounts')
+fetch("/cart.js")
+           .then(function(res){ return res.json()})
+           .then(
+             function(dat){
+            localStorage.setItem('items',JSON.stringify(dat['items']))
+            cartCount.innerText=dat['item_count']
+               if (cartTotal){
+             final_price = `${dat['total_price']}`
+             console.log(final_price)
+             cartTotal.innerText = '$'+final_price.substr(0,final_price.length - 2)+'.'+final_price.substr(-2)
+           }
+           console.log(dat['items'].length)
+           if (dat['items'].length==2){
+               disString.innerText = disconts[0]
+           }
+           else if (dat['items'].length==3){
+               disString.innerText = disconts[1]
+           }
+           if (dat['items'].length>3){
+               disString.innerText = disconts[2]
+           }
+           else{
+               disString.innerText = 'None'
+           }
+             }
+           )
+for (var i = 0; i < plus.length; i++) {
+    
+           
+    plus[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        lis = this.dataset.qty
+        l = document.getElementById(lis)
+        this.disabled = true
+        le = parseInt(l.value)
+        le++         
+        console.log('ss')
+        changeCart(lis.substr(4),le,this)
+          
+        })
+
+    }
+for (var i = 0; i < minus.length; i++) {
+
+    minus[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        lis = this.dataset.qty
+        l = document.getElementById(lis)
+        this.disabled = true
+        //if (l.value <= 1) {
+          //  console.log('no')
+        //} else {
+            le = parseInt(l.value)
+            le--
+                changeCart(lis.substr(4),le,this)
+
+          
+        })   
+       // }
+    
+}
+
+for (var i = 0; i < s.length; i++) {
+
+    s[i].addEventListener('click', function() {
+        document.getElementById('color_name').innerText = this.value
+    })
+}
+for (var i = 0; i < lk.length; i++) {
+
+    lk[i].addEventListener('click', function() {
+        document.getElementById('size_name').innerText = this.value
+        
+    })
+}
+
+
+for (var i = 0; i < btn_plus.length; i++) {
+
+    btn_plus[i].addEventListener('click', function(e) {
+      e.preventDefault()
+        lis = this.dataset.qty
+        l = document.getElementById(lis)
+        l.value++
+
+    })
+}
+for (var i = 0; i < btn_minus.length; i++) {
+
+    btn_minus[i].addEventListener('click', function(e) {
+      e.preventDefault()
+        lis = this.dataset.qty
+        l = document.getElementById(lis)
+        if (l.value <= 1) {
+            console.log('')
+        } else {
+            l.value--
+        }
+    })
+}
+
+
+
+for (var i = 0; i < opti.length; i++) {
+
+    opti[i].addEventListener('click', function() {
+        selected(this.value,this.name)
+        console.log('iodsjaldkasjldksaj')
+
+    })
+}
+for (var i = 0; i < remove.length; i++) {
+
+    remove[i].addEventListener('click', function(e) {
+      e.preventDefault()
+        lis = this.dataset.id
+       
+        
+        changeCart(lis,0)
+        
+          
+        })
+
+    }
+
+setTimeout(() => initBundle(), 2000);
+setTimeout(() => console.log(JSON.parse(localStorage.getItem('items'))),2000)
+}
+init()   
+
+
+
+tostart = ''
+forend = ''
+function selected(value,name){
+    
+  if (name == "color"){
+    forend = value
+    findoptions()
+    
+  }
+  else if(name == "size"){
+    tostart = value
+    exites =  tostart + ' / ' + forend
+    findoptions()
+    }
+}
+function findoptions(){
+    exites =  tostart + ' / ' + forend
+    console.log(exites)
+    let result = variantes.filter(word => word['value'].includes(exites));
+    console.log('res: '+ result)
+    if (result.length > 0){
+      res = result[0]['key']
+      document.getElementById('product-id').value = res
+      
+    }
+}
+
+
+
+
+function buildItemCard(data){
+  console.log(data['items'])
+  itemscard.innerHTML = ''
+for (let i = 0; i < data['items'].length; i++) {
+    let arr = data['items'][i]
+    let buildHTML = document.createElement("div")
+    buildHTML.dataset.cartItemProductId = arr['id']
+    buildHTML.dataset.cartItem = arr['key']
+    buildHTML.classList.add("cartItem")
+    buildHTML.innerHTML = `
+    <img class="cartItem__img" src="${arr['featured_image']['url']}" width="112px" alt="">
+        <div class="cartItem__body">
+            <h3 class="cartItem__title">${arr['product_title']}</h3>
+            <div class="cartItem__option"><span>
+            ${arr['variant_options'][0]}
+            </span>
+            <br><span>
+            ${arr['variant_options'][1]}
+            </span>
+            <br></div>
+            <div class="dflex">
+                <div class="productPrice__quantity">
+                    <button class="minus" data-qty="qty-${arr['id']}">-</button>
+                    <input type="text" id="qty-${arr['id']}" name="quantity" value="${arr['quantity']}">
+                    <button class="plus" type="button" data-qty="qty-${arr['id']}">+</button>
+                </div>
+                <button class="cartRemove" data-id="${arr['id']}">REMOVE</button>
+            </div>
+        </div>
+    `
+    itemscard.appendChild(buildHTML)
+ 
+}
+}
+
+function changeCart(lis,value = 0,elem){
+  var data = new FormData();
+        data.append("id", lis);
+        data.append("quantity",value)
+
+        fetch("/cart/change.js",
+        {
+            method: "POST",
+            body: data
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+           
+           
+           buildItemCard(data)
+           init()
+           if (elem){
+              elem.disabled = false
+           }
+           
+           })
+           
+}
+function addCart(lis,value = 0,elem){
+  var data = new FormData();
+        data.append("id", lis);
+        data.append("quantity",value)
+        data.append('discount', "fabfour")
+        fetch("/cart/add.js",
+        {
+            method: "POST",
+            body: data
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+           
+           fetch("/cart.js")
+           .then(function(result){return result.json();})
+           .then(function(datas){
+                buildItemCard(datas)
+                init()
+                if (elem){
+                    elem.disabled = false
+                }
+           })
+           
+           
+           })
+           
+}
+function getvars (tostart,forend){
+    exites =  tostart + ' / ' + forend
+    let result = variantes.filter(word => word['value'].includes(exites));
+    if (result.length > 0){
+      res = result[0]['key']
+      console.log(res)
+      return res
+    }
+}
+
+$('.cartItemAdd__body_otion select').each(function(index){
+    $(this).attr('index', index)
+    $(this).attr('data-value', $(this).val())
+    let attrcolor = ''
+    let attrsize = ''
+    
+    $(this).change(function(){
+    let s = 0
+      $(this).attr('data-value', $(this).val())
+      $('.cartItemAdd__body_otion select').each(function(index){
+        if ($(this).attr('index') == 0){
+          attrsize = $(this).attr('data-value')
+        }
+        else if ($(this).attr('index') == 1){
+          attrcolor = $(this).attr('data-value')
+        }
+      })
+      
+      
+    })
+    
+})
+$('#add_to_cart_btn').click(function(event){
+    event.preventDefault()
+    
+    let smile = []
+    $('.cartItemAdd__body_otion select').each(function(index){
+        smile.push($(this).attr('data-value'))
+    })
+    l = getvars(smile[0],smile[1])
+    addCart(l,1)
+    
+})
+
+
+
+
+//$( document ).ready(function() {
+    $('.dflex_productBundle .productBundle').each(function(elem,value){
+        $(this).find('.addDuo').click(function(){
+            if ($(this).attr('data-action') == 'remove'){
+                changeCart($(this).attr('data-value'))
+                $(this).attr('data-value','')
+            }
+            else if($(this).attr('data-action') == 'add'){
+                addCart($(this).attr('data-value'),1)
+
+            }
+            
+        })
+        let s = 0
+        $(this).find('select').change(function(){
+            $(this).attr('datas',$(this).val())
+            let arrs = []
+            $(value).find('select').each(function(){
+                arrs.push($(this).attr('datas'))
+            })
+            let filter = arrs.filter(el => el == undefined)
+            if (filter.length < 1){
+                $(value).find('.addDuo').attr('data-value',getvars(arrs[0],arrs[1]))
+                
+            }
+            
+        })
+    });
+    function initBundle(){
+        let saver = ['','save $8','save $14','save $20']
+        let imgServer = "{{ 'slips.png' | asset_url }}"
+        let sItem = JSON.parse(localStorage.getItem('items')).reverse()
+
+        $('.dflex_productBundle .productBundle').each(function(index){
+        stock = $(this).find('.stock')
+        image = $(this).find('img')
+        size = $(this).find('select[name="Size"]')
+        color = $(this).find('select[name="Color"]')
+        btn = $(this).find('.addDuo')
+        //console.log(btn)
+        //console.log(size)
+        //console.log(image)
+        if (sItem[index]){
+            let gets
+            gets = getvars(sItem[index].options_with_values[0].value,sItem[index].options_with_values[1].value)
+            stock.html('added')
+            $(image).attr("src","//cdn.shopify.com/s/files/1/0593/3675/3359/products/Terrelique_pink_light-1_medium.png?v=1629199260");
+            sizeOption = sItem[index].options_with_values[0].value
+            colorOption = sItem[index].options_with_values[1].value
+            size.find(`option[value='${sizeOption}']`).attr('selected', true)
+            size.find(`option[value='${sizeOption}']`).prependTo(size)
+            btn.text('REMOVE')
+            btn.attr('data-value',gets)
+            btn.attr('data-action','remove')
+            $(this).find('.new-select').first().text(sizeOption)
+            color.find(`option[value='${colorOption}']`).attr('selected', true)
+            color.find(`option[value='${colorOption}']`).prependTo(color)
+            $(this).find('.new-select').last().text(colorOption)
+            console.log(sItem[index])
+            $(this).find('.select2').show()
+            $(this).find('.select2').first().text(sItem[index].options_with_values[0].value)
+            $(this).find('.selectes').hide()
+            
+            $(this).find('.select2').last().text(sItem[index].options_with_values[1].value)
+        }
+        
+        else{
+            $(image).attr("src",imgServer)
+            stock.html(saver[index])
+            btn.text('ADD TO CART')
+            btn.attr('data-action','add')
+            $(this).find('.select2').hide()
+            $(this).find('.selectes').show()
+
+
+        }
+        
+    
+    
+    })
+    }
+  initBundle()
+//});
+
+
+</script> 
+<!-- Stamped - Begin Script-->
+<script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
+<!-- Stamped - End Script -->
+{% render 'ajaxify-cart' %}

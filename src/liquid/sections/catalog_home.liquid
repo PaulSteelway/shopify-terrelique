@@ -1,0 +1,60 @@
+<section class="catalogSection">
+    <h2 class="catalogSection__title section__title">{{section.settings.section_title}}</h2>
+    <div class="dflex catalogSectionJs">
+    {% for brand in section.blocks%}
+    <a href="{{brand.settings.product_url}}" class="mainProduct">
+            <img src="{{ brand.settings.imager | img_url: 'master' }}" alt="">
+            <span class="mainProduct__title">{{brand.settings.text_title}}</span>
+        </a>
+    {%endfor%}
+        
+    </div>
+    <a href="{{section.settings.button_url}}" class="btn"><span class="text">{{section.settings.button_title}}</span> <span class="decor" ></span></a>
+</section>
+{% schema %}
+{
+    "name":"Catalog Home",
+    "tag":"section",
+    "settings":[
+           {
+                   "type": "text",
+                   "id": "section_title",
+                   "label": "Section title"
+                 },
+                 {
+                   "type": "text",
+                   "id": "button_title",
+                   "label": "Button title"
+                 },
+                 {
+                   "type": "url",
+                   "id": "button_url",
+                   "label": "Button link"
+                 }
+    ],
+    "blocks": [
+	         {
+               "type": "slide",
+               "name": "Product",
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager",
+                   "label": "Slider Image"
+                 },
+                 {
+                   "type": "text",
+                   "id": "text_title",
+                   "label": "Catalog title"
+                 },
+                 {
+                   "type": "url",
+                   "id": "product_url",
+                   "label": "Catalog link"
+                 }
+
+               ]
+             }
+             ]
+}
+{% endschema %}

@@ -1,0 +1,91 @@
+<section class="fotosSection">
+    <div class="fotosSection__wrap">
+        <h2 class="fotosSection__title section__title">
+            join the shoe-free mvmt
+        </h2>
+        <div class="fotosSection__tag">
+            <span>@terrelique</span>
+            <span>#myterreliques</span>
+        </div>
+    </div>
+    <div class="fotos">
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+
+    </div>
+    <div class="fotos">
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+        <div class="fotos__item">
+            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
+        </div>
+
+    </div>
+</section>
+{% schema %}
+{
+    "name":"Photos",
+    "tag":"section",
+    "blocks": [
+	         {
+               "type": "slide",
+               "name": "Photo",
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager",
+                   "label": "Slider Image"
+                 }
+
+               ]
+             },
+             {
+               "type": "slider",
+               "name": "Photo 2",
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager2",
+                   "label": "Slider Image 2"
+                 }
+
+               ]
+             }
+             ]
+}
+{% endschema %}

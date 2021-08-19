@@ -1,10 +1,13 @@
-[
-  {
-    "name": "theme_info",
-    "theme_name": "Advanced Gulp Theme",
-    "theme_author": "Sam Webb",
-    "theme_version": "1.0.0",
-    "theme_support_email": "sam@samthewebb.com",
-    "theme_documentation_url": "https://samthewebb.com"
-  }
+[{
+        "name": "theme_info",
+        "theme_name": "Debut",
+        "theme_author": "Shopify",
+        "theme_version": "17.13.0",
+        "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
+        "theme_support_url": "https:\/\/support.shopify.com\/"
+    }
+
+
+
+
 ]

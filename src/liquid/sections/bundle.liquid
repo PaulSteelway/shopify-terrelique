@@ -1,0 +1,67 @@
+<h3 class="product__title_h3">BUILD YOUR BUNDLE</h3>
+
+                <div class="dflex dflex_productBundle">
+                    
+
+                    
+                    {% if section.settings.items == 2%}
+                    {% assign arr = "0,1" | split: ',' %}
+                    {%endif%}
+                    {% if section.settings.items == 3%}
+                    {% assign arr = "0,1,2" | split: ','%}
+                    {%endif%}
+                    {% if section.settings.items == 4%}
+                    {% assign arr = "0,1,2,3" | split: ','%}
+                    {% endif %}
+                    <script>
+                    let stringArr = []
+                    {% for bundle in arr%}
+                        stringArr.push({{bundle}})
+                    {%endfor%}    
+                    </script>
+                    {% for bundle in arr%}
+                    <div class="productBundle">
+                        <div class="productBundle__img">
+                            <div class="stock">added</div>
+                            <img src="{{ 'slips.png' | asset_url }}" alt="">
+
+                        </div>
+                        {% for product_option in product.options_with_values %}
+                        <div class="selectes">
+                            <select class="select"  name="{{product_option.name}}">
+                            <option disabled >Choose {{product_option.name}}</option>
+                            {% for value in product_option.values %}
+                            <option value="{{value}}">{{value}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                            <div class="select2 new-sub-select" style="display:none"></div>
+                        {% endfor %}
+                        <button type="submit" class="addDuo add" data-action="add" data-value="">ADD TO CART</button>
+
+                    </div>
+                    {%endfor%}
+                       
+                    
+                </div>
+                <div class="addDuo">ADD DYNAMIC DUO - $96</div>
+
+                {% schema %}
+{
+    "name":"Bundle",
+    "tag":"section",
+    "settings": [
+	    {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+        },
+        {
+            "type": "number",
+            "id": "items",
+            "label": "Count of items"
+        }
+    ]
+}
+
+{% endschema %}

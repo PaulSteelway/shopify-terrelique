@@ -1,0 +1,87 @@
+<section class="caruselSection">
+    <div class="sliderJs">
+        <div class="sliderJsItem__wrap">
+            <div class="sliderJsItem">
+                <div class="sliderJsItem__info">
+                    <h3 class="sliderJsItem__title">
+                        Massaging Footbed
+                    </h3>
+                    <p class="sliderJsItem__text">
+                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
+                    </p>
+                </div>
+                <div class="sliderJsItem__img">
+                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="sliderJsItem__wrap">
+            <div class="sliderJsItem">
+                <div class="sliderJsItem__info">
+                    <h3 class="sliderJsItem__title">
+                        Massaging Footbed
+                    </h3>
+                    <p class="sliderJsItem__text">
+                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
+                    </p>
+                </div>
+                <div class="sliderJsItem__img">
+                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="sliderJsItem__wrap">
+            <div class="sliderJsItem">
+                <div class="sliderJsItem__info">
+                    <h3 class="sliderJsItem__title">
+                        Massaging Footbed
+                    </h3>
+                    <p class="sliderJsItem__text">
+                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
+                    </p>
+                </div>
+                <div class="sliderJsItem__img">
+                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% schema %}
+{
+    "name":"Carousel",
+    "tag":"section",
+    
+    "blocks": [
+	         {
+               "type": "slide",
+               "name": "slide",
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager",
+                   "label": "Carousel Image"
+                 },
+                 {
+                   "type": "text",
+                   "id": "text_title",
+                   "label": "Carousel title"
+                 },
+                  {
+                   "type": "text",
+                   "id": "text_desc",
+                   "label": "Carousel description"
+                 },
+                 {
+                   "type": "url",
+                   "id": "product_url",
+                   "label": "Carousel link"
+                 }
+
+               ]
+             }
+             ]
+}
+{% endschema %}

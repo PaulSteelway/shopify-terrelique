@@ -1,0 +1,19 @@
+<section class="blogSection">
+            <h2 class="product__title">
+                sacred spaces
+            </h2>
+             
+    
+
+            <div class="blogSection__wrap">
+            {%for article in blog.articles %}
+                <a href="{{article.url}}" class="blogLink">
+                    <img src="{{article.image | image_url}}" alt="">
+                    <span class="blogLink__title">{{article.title}}</span>
+                    <span class="blogLink__text">{{article.excerpt}}</span>
+                </a>
+            {% endfor %}
+                
+            </div>
+            <a href="" class="btn"><span class="text">SHOP SLIPS</span> <span class="decor" ></span></a>
+        </section>

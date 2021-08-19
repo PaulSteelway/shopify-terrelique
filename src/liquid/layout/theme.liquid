@@ -12,10 +12,14 @@
 
 <body>
     <main>
-        {% section 'header' %} {{ content_for_layout }} {% section 'footer' %}
+        {% section 'header' %}{{ content_for_layout }} {% section 'footer' %}
     </main>
+    
     {% section 'svg' %} {% section 'scripts' %}
+  
     <script src="{{ 'theme.js' | asset_url }}"></script>
+  
+    
 </body>
 
 </html>

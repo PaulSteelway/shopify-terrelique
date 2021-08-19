@@ -1,0 +1,35 @@
+<section class="blogPageSection">
+            <img src="{{ article.image.src | img_url: '1000x' }}" alt="" class="blogPageSection__img">
+            <h2 class="title">
+                {{article.title}}
+
+            </h2>
+            <p class="blogPageSection__des">{{article.excerpt}}</p>
+            <div class="blogPageSection__info">
+                {{article.content}}
+            </div>
+            <div class="dflex">
+            {% if blog.previous_article%}
+                <a href="{{blog.previous_article.url}}" class="blogPageSection__link">
+                    <svg width="57" height="22" viewBox="0 0 57 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="3" y1="10.5" x2="57" y2="10.5" stroke="#365B58"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 20.3708L2.42275 11L15 1.65083L14.4584 1L1 11L14.4671 21L15 20.3708Z" fill="#365B58" stroke="#365B58" stroke-width="0.5"/>
+                    </svg>
+                    Previous <span>{{blog.previous_article.title}}</span>
+                </a>
+            {%endif%}
+            {% if blog.next_article%}
+                <a href="{{blog.next_article.url}}" class="blogPageSection__link">
+                    Next <span>{{blog.next_article.title}}</span>
+                    <svg width="56" height="22" viewBox="0 0 56 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="10.5" x2="54" y2="10.5" stroke="#365B58"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M41 1.62917L53.5773 11L41 20.3492L41.5416 21L55 11L41.5329 1L41 1.62917Z" fill="#365B58" stroke="#365B58" stroke-width="0.5"/>
+                    </svg>
+
+                </a>
+            {%endif%}
+
+            </div>
+            
+        </section>
+        {% section 'subscribe' %}

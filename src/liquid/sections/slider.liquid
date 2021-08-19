@@ -1,0 +1,75 @@
+
+<section class="sliderSection">
+    <div class="slider">
+    {% for slide in section.blocks %}
+    <div class="sliderItem">
+                <img src="{{ 'Group.svg' | asset_url }}" alt="" class="sliderItem__imgDecor">
+            <img src="{{ 'GroupSm.svg' | asset_url }}" alt="" class="sliderItem__imgDecor sliderItem__imgDecor_sm">
+            {{slide.section}}
+            <div class="stick">
+                <h2 class="sliderItem__title">{{slide.settings.text-title}}</h2>
+                <p class="sliderItem__text">
+                    {{slide.settings.text-subtitle}}
+                </p>
+                <a href="{{slide.settings.url}}" class="btn"><span class="text">{{slide.settings.text-desc}}</span> <span class="decor" ></span></a>
+            </div>
+            <img src="{{ slide.settings.imager | img_url: 'master' }}" alt="" class="sliderItem__img">
+        </div>
+    {% endfor%}
+        
+
+
+
+    </div>
+
+</section>
+{% schema %}
+{
+"name":"Slider",
+"class":"slider",
+"tag":"section",
+"settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+"blocks": [
+	         {
+               "type": "slide",
+               "name": "Image",
+               
+               "settings": [
+		         {
+                   "type": "image_picker",
+                   "id": "imager",
+                   "label": "Slider Image"
+                 },
+                 {
+                   "type": "text",
+                   "id": "text-title",
+                   "label": "Title"
+                 },
+                 {
+                   "type": "text",
+                   "id": "text-subtitle",
+                   "label": "Subtitle"
+                 },
+                 {
+                   "type": "textarea",
+                   "id": "text-desc",
+                   "label": "Description"
+                 },
+                 {
+                   "type": "url",
+                   "id": "slider_link",
+                   "label": "Link"
+                 }
+
+               ]
+             }
+             ]
+
+}
+{% endschema %}
