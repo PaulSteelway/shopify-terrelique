@@ -18,26 +18,16 @@
                     <div class="product__price product__price_old">{{ product.price }}</div>
                     <div class="product__price">{{ product.price | money_with_currency }}</div>
                 </div>
-                <div class="product__rew">
-                    <div class="product__stars">
-                        <svg width="17" height="17">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        <svg width="17" height="17">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        <svg width="17" height="17">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        <svg width="17" height="17">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        <svg width="17" height="17">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                    </div>
-                    {{product.rewiews}} REVIEWS
-                </div>
+                <span 
+class="stamped-product-reviews-badge stamped-main-badge" 
+data-id="{{ product.id }}" 
+data-product-sku="{{ product.handle }}" 
+data-product-title="{{product.title}}" 
+data-product-type="{{product.type}}" 
+style="display: block;">
+{{product.metafields.stamped.badge}}
+</span>
+                <br/>
                 <div class="product__text">
                     {{product.description}}
                 </div>
@@ -157,10 +147,4 @@
 
                 <style>.STP-tiers{display:none!important}</style>
 
-    <script>
-    let variantes = []
-    {%for variant in product.variants%}
-    variantes.push({"key":"{{variant.id}}", "value":"{{variant.title}}"})
-        
-    {%endfor%}    
-    </script>
+    

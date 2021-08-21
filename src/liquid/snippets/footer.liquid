@@ -1,13 +1,10 @@
 <footer>
     <div class="footer__wrap">
         <ul class="footer__nav">
-            <li><a href="">OUR STORY</a></li>
-            <li><a href="">MOODS</a></li>
-            <li><a href="">SACRED SPACES</a></li>
-            <li><a href="">WHOLESALE</a></li>
-            <li><a href="">PR INQUIRIES</a></li>
-            <li><a href="">RETURNS & EXCHANGES</a></li>
-            <li><a href="">FAQ</a></li>
+        {% for item in section.settings.header_left.links %}
+            <li><a href="{{item.url}}">{{ item.title }}</a></li>
+        {% endfor %}
+            
         </ul>
         <div class="footer__navDop">
             <a href="">CONTACT US</a> <br>

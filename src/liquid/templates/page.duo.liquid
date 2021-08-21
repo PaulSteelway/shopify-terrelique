@@ -1,0 +1,96 @@
+        {% assign product = settings.product %}
+
+<div class="productWrap">
+            {% if page.content == '2' %}
+                {% assign times = 2%}
+                {% assign minus = 800%}
+            {%- endif -%}
+            {% if page.content == '3' %}
+                {% assign times = 3%}
+                {% assign minus = 1400%}
+            {%- endif -%}
+            {% if page.content == '4' %}
+                {% assign times = 4%}
+                {% assign minus = 2000%}
+            {%- endif -%}
+            
+            {% section 'bundle_image' %}
+            <div class="productWrap__item productWrap__item_dos">
+            <form method="post" action="/cart/add"  id="add-to-cart-{{ product.handle }}">
+            <input type="hidden" name="id" id="product-id" value="{{product.variants.first.id}}">
+                <h2 class="product__title">{{page.title}}</h2>
+                <div class="dflex">
+                    <div class="product__price product__price_old">{{ product.price | times: times | money_with_currency}}</div>
+                    <div class="product__price">{{ product.price  | times: times | minus: minus | money_with_currency  }}</div>
+                </div>
+                <div class="product__rew">
+                    <span 
+class="stamped-product-reviews-badge stamped-main-badge" 
+data-id="{{ product.id }}" 
+data-product-sku="{{ product.handle }}" 
+data-product-title="{{product.title}}" 
+data-product-type="{{product.type}}" 
+style="display: block;">
+{{product.metafields.stamped.badge}}
+</span>
+                <br/>
+                </div>
+                <div class="product__text">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. Sed ut perspiciatis unde omnis.
+                </div>
+               
+                
+               
+
+
+                
+                <hr class="detailsDecor">
+                <details  >
+                    <summary>PRODUCT DETAILS</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                <details  >
+                    <summary>RETURNS & EXCHANGES</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                <details >
+                    <summary>CARE GUIDE</summary>
+                    <div class="details__content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit? Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                        </p>
+                    </div>
+                </details>
+                </form>
+                {{bundle.section.settings.items}}
+                {% section 'bundle'%}
+            </div>
+        </div>
+        {% section 'whysection' %}
+        {% section 'carousel' %}
+        <section class="storySection">
+            {% section 'ourstory' %}
+        </section>
+        {% section 'rewiews' %}
+
+        {% section 'foto' %}
+
+        {% section 'subscribe' %}
+
+                <style>.STP-tiers{display:none!important}</style>
+
+    <script>
+    let variantes = []
+    {%for variant in product.variants%}
+    variantes.push({"key":"{{variant.id}}", "value":"{{variant.title}}"})
+        
+    {%endfor%}    
+    </script>

@@ -82,7 +82,7 @@ h2 {
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USew8.ttf) format('truetype');
+    src: url(https://fonts.gstatic.com/s/lato/v19/S6u9w4BMUTPHh7USew8.ttf) format('truetype');
 }
 
 @font-face {
@@ -90,7 +90,7 @@ h2 {
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/lato/v17/S6uyw4BMUTPHvxk.ttf) format('truetype');
+    src: url(https://fonts.gstatic.com/s/lato/v19/S6uyw4BMUTPHvxk.ttf) format('truetype');
 }
 
 @font-face {
@@ -98,7 +98,7 @@ h2 {
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh6UVew8.ttf) format('truetype');
+    src: url(https://fonts.gstatic.com/s/lato/v19/S6u9w4BMUTPHh6UVew8.ttf) format('truetype');
 }
 
 @font-face {
@@ -106,7 +106,7 @@ h2 {
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh50Xew8.ttf) format('truetype');
+    src: url(https://fonts.gstatic.com/s/lato/v19/S6u9w4BMUTPHh50Xew8.ttf) format('truetype');
 }
 
 @font-face {
@@ -119,7 +119,7 @@ h2 {
 
 @font-face {
     font-family: 'Termina';
-    src: url('./Termina-Bold.otf');
+    src: url('../fonts/Termina-Bold.otf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -558,10 +558,11 @@ nav {
     left: 20%;
     z-index: 11;
     max-width: 270px;
-}
-
-.sticky {
-    position: fixed;
+    text-align: center;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
 }
 
 .sliderItem__title {
@@ -628,6 +629,19 @@ nav {
     height: 98%;
     border: 2px solid #294744;
     border-radius: 3px;
+    background: #FFF9EF;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.btn:hover {
+    filter: contrast(90%);
+}
+
+.btn:hover span.decor {
+    filter: contrast(90%);
 }
 
 .sliderItem__imgDecor {
@@ -650,12 +664,8 @@ nav {
 
 .partnerList {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
-}
-
-.partnerList li:not(:last-child) {
-    margin-right: 145px;
 }
 
 .catalogSection {
@@ -673,7 +683,7 @@ nav {
 
 .catalogSection .btn span.text,
 .catalogSection .btn span.decor {
-    background: #CEE4EC;
+    background: #FFF9EF;
 }
 
 .section__title {
@@ -943,6 +953,36 @@ nav {
     max-height: 1440px;
 }
 
+.feedSlider {
+    position: relative;
+}
+
+.feedSlider .slick-dots {
+    position: absolute;
+    right: 100px;
+    top: 97px;
+}
+
+.feedSlider .slick-dots li {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #294744;
+    cursor: pointer;
+}
+
+.feedSlider .slick-dots li.slick-active {
+    background: #365B58;
+}
+
+.feedSlider .slick-dots li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.feedSlider .slick-dots button {
+    font-size: 0;
+}
+
 .feedSection__svg {
     margin-bottom: 65px;
 }
@@ -1092,6 +1132,8 @@ footer:after {
 }
 
 .footerInfo svg {
+    width: 37px;
+    height: 38px;
     display: block;
     margin: 0 0 15px auto;
 }
@@ -1126,7 +1168,7 @@ footer:after {
 }
 
 .productWrap__item_dos {
-    max-width: 500px;
+    max-width: 472px;
 }
 
 .product__title {
@@ -1261,8 +1303,8 @@ footer:after {
 }
 
 .mob {
-    width: 45px;
-    height: 70px;
+    width: 31px;
+    height: 19px;
     overflow: hidden;
     display: none;
     background: none;
@@ -1272,7 +1314,7 @@ footer:after {
     display: block;
     position: relative;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background: #365B58;
     border-radius: 4px;
     -webkit-transition: all 0.1s;
@@ -1286,9 +1328,9 @@ footer:after {
     width: 100%;
     border-radius: 4px;
     position: absolute;
-    top: -15px;
+    top: -8px;
     left: 0;
-    height: 3px;
+    height: 2px;
     background-color: #365B58;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -1301,10 +1343,10 @@ footer:after {
     content: "";
     width: 100%;
     position: absolute;
-    height: 3px;
+    height: 2px;
     left: 0;
     background-color: #365B58;
-    bottom: -15px;
+    bottom: -8px;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -1453,6 +1495,12 @@ footer:after {
     font-weight: 700;
     color: #365B58;
     background: none;
+}
+
+.productPrice__quantity button {
+    height: 100%;
+    font-weight: 18px;
+    color: #365B58;
 }
 
 .submitBtn {
@@ -1753,6 +1801,7 @@ details[open] summary::after {
 
 .storySection__img {
     position: absolute;
+    border: 2px solid #365B58;
 }
 
 .rewSection {
@@ -2082,7 +2131,7 @@ details[open] summary::after {
     margin-bottom: 10px;
     width: 100%;
     height: 418px;
-    background: red;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .blogSection__wrap .blogLink span {
@@ -2143,16 +2192,9 @@ details[open] summary::after {
     letter-spacing: 0.08rem;
 }
 
-.blogPageSection__img {
-    width: 100%;
-    height: 485px;
-    margin: 0 auto 50px;
-}
-
 .blogPageSection {
     max-width: 855px;
     margin: auto;
-    padding-top: 50px;
 }
 
 .blogPageSection h2.title {
@@ -2166,6 +2208,12 @@ details[open] summary::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.blogPageSection__img {
+    width: 100%;
+    height: 485px;
+    margin: 0 auto 50px;
 }
 
 .blogPageSection__des {
@@ -2426,7 +2474,7 @@ span.td:first-child {
 
 /*-------------------------------------------*/
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 800px) {
     .caruselSection {
         display: none;
     }
@@ -2559,12 +2607,36 @@ span.td:first-child {
     .tdHide {
         display: none !important;
     }
+    .mainProduct {
+        max-width: 30%;
+    }
+    .faqSection__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+        padding-top: 0;
+        height: 80vh;
+    }
+    .faqSection__img .product__title {
+        margin: 0 auto 90px;
+    }
+    .faqSection__img .product__title::before {
+        height: 30px;
+    }
+    .stick {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 
 /*-------------------------------------------*/
 
 @media only screen and (max-width: 600px) {
+    nav {
+        padding: 12px 20px;
+    }
     .navHeader {
         display: none;
     }
@@ -2724,10 +2796,15 @@ span.td:first-child {
     .copy {
         order: 2;
     }
+    .footerInfo {
+        order: 3;
+    }
     .footerInfo svg {
         position: absolute;
-        right: 10px;
+        right: 20px;
         top: 33px;
+        width: 20px;
+        height: 20px;
     }
     .nav__politic {
         margin-bottom: 40px;
@@ -2754,7 +2831,7 @@ span.td:first-child {
         margin-top: 30px;
     }
     .whySectionItem {
-        padding: 50px 40px;
+        padding: 50px 30px;
     }
     .whySection__it_moods {
         height: 611px;
@@ -2815,5 +2892,45 @@ span.td:first-child {
     }
     .blogPageSection__link:last-child svg {
         margin-left: 10px;
+    }
+    .mainProduct {
+        max-width: 100%;
+    }
+    .feedSection {
+        padding: 0px 0px 50px;
+    }
+    .feedSection__img {
+        margin-bottom: 70px;
+    }
+    .feedSection__text {
+        font-size: 18px;
+        padding: 0 40px;
+    }
+    .fotos__item img {
+        width: 95%;
+        height: 300px;
+    }
+    .whySection__it_moodsWR {
+        padding-top: 50px;
+        height: 87%;
+    }
+    .whySection__it_moodsWR .section__title {
+        font-size: 32px;
+    }
+    .moodsDEsc {
+        max-width: 100%;
+        margin: 0 auto 40px;
+        padding: 0 18px;
+        font-weight: bold;
+    }
+    .whySectionItem__block p {
+        font-weight: bold;
+    }
+    .ourStorySection .product__title {
+        margin-bottom: 70px;
+        font-size: 28px;
+    }
+    .storySection__item:nth-child(2) .storySection__img {
+        top: 223px;
     }
 }

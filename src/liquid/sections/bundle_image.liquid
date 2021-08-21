@@ -1,0 +1,13 @@
+<div class="productWrap__item productWrap__item_un">
+        {% assign product = settings.product %}
+                {% for image in product.images %}
+                {% if forloop.index == 1%}
+                <img src="{{ image | img_url: 'grande' }}" alt="" class="productWrap__item_img">
+                {%else%}
+                <img src="{{ image | img_url: 'medium' }}" alt="" class="productWrap__item_img">
+                {%endif%}
+                
+                {% endfor %}
+                
+            </div>
+          

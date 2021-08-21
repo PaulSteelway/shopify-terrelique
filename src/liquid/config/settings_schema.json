@@ -1,10 +1,19 @@
 [{
         "name": "theme_info",
-        "theme_name": "Debut",
-        "theme_author": "Shopify",
+        "theme_name": "Steelway-theme",
+        "theme_author": "Steelway",
         "theme_version": "17.13.0",
         "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
         "theme_support_url": "https:\/\/support.shopify.com\/"
+    },
+    {
+        "name": "image_product",
+        "settings": [{
+            "type": "product",
+            "id": "product",
+            "label": "product"
+        }]
+
     }
 
 

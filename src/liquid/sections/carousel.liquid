@@ -1,50 +1,25 @@
 <section class="caruselSection">
     <div class="sliderJs">
-        <div class="sliderJsItem__wrap">
+        {% for slider in section.blocks %}
+         
+            <div class="sliderJsItem__wrap">
             <div class="sliderJsItem">
                 <div class="sliderJsItem__info">
                     <h3 class="sliderJsItem__title">
-                        Massaging Footbed
+                        {{slider.settings.text_title}}
                     </h3>
                     <p class="sliderJsItem__text">
-                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
+                        {{slider.settings.text_desc}}
                     </p>
                 </div>
                 <div class="sliderJsItem__img">
-                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
+                    <img src="{{ slider.settings.imager | img_url: 'master' }}" alt="">
                 </div>
             </div>
         </div>
-        <div class="sliderJsItem__wrap">
-            <div class="sliderJsItem">
-                <div class="sliderJsItem__info">
-                    <h3 class="sliderJsItem__title">
-                        Massaging Footbed
-                    </h3>
-                    <p class="sliderJsItem__text">
-                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
-                    </p>
-                </div>
-                <div class="sliderJsItem__img">
-                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="sliderJsItem__wrap">
-            <div class="sliderJsItem">
-                <div class="sliderJsItem__info">
-                    <h3 class="sliderJsItem__title">
-                        Massaging Footbed
-                    </h3>
-                    <p class="sliderJsItem__text">
-                        Terreliques work hard to absorb shock on hard floors while also massaging the bottoms of your feet!
-                    </p>
-                </div>
-                <div class="sliderJsItem__img">
-                    <img src="{{ 'slide1.png' | asset_url }}" alt="">
-                </div>
-            </div>
-        </div>
+        {% endfor %}
+        
+        
 
     </div>
 

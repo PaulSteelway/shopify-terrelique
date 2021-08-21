@@ -1,0 +1,44 @@
+<section class="feedSection">
+                <img class="feedSection__img" src="img/terrelique-34_2X.jpg" alt="" />
+                <div class="feedSlider">
+                {% for review in section.blocks%}
+                <div class="feedSlider__item">
+                        <svg class="feedSection__svg" width="149" height="26">
+                            <use xlink:href="#stars"/>
+                        </svg>
+                        <p class="feedSection__text">
+                            {{review.settings.desc}}
+                            <span>{{review.settings.author}}</span>
+                        </p>
+                    </div>
+                {% endfor %}
+                    
+
+                    
+                </div>
+
+        </section>
+{% schema %}
+{
+    "name":"Review block",
+    "blocks": [
+	         {
+               "type": "slide",
+               "name": "Review",
+               "settings": [
+		         {
+                   "type": "textarea",
+                   "id": "desc",
+                   "label": "Review Description"
+                 },
+                 {
+                   "type": "text",
+                   "id": "author",
+                   "label": "Author name"
+                 }
+
+               ]
+             }
+             ]
+}
+{% endschema %}

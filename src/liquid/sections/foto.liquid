@@ -7,53 +7,27 @@
             <span>@terrelique</span>
             <span>#myterreliques</span>
         </div>
+         
     </div>
     <div class="fotos">
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-
+        {%for foto in section.blocks%}
+         {% if foto.settings.imager%}
+            <div class="fotos__item">
+                <img class="" src="{{ foto.settings.imager | img_url: 'master' }}" alt="">
+            </div>
+         {% endif %}
+        {% endfor %}
+        
     </div>
     <div class="fotos">
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
-        <div class="fotos__item">
-            <img class="" src="{{ 'foto1.jpg' | asset_url }}" alt="">
-        </div>
+        {%for foto in section.blocks%}
+         {% if foto.settings.imager2%}
+            <div class="fotos__item">
+                <img class="" src="{{ foto.settings.imager2 | img_url: 'master' }}" alt="">
+            </div>
+         {% endif %}
+        {% endfor %}
+        
 
     </div>
 </section>

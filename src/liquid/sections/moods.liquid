@@ -1,0 +1,88 @@
+
+<div class="dflex">
+                <div class="whySection__item">
+                    <img class="whySection__img whySection__it_moods" src="{{ 'WhyTerrelique_.jpg' | asset_url }}" alt="">
+                </div>
+                
+            
+<div class="whySection__item">
+                    <div class="whySection__it_moods whySection__it_moods_col">
+                        <div class="whySection__it_moodsWR">
+                            <h2 class="whySection__title section__title">color <br> psychology <br> is real</h2>
+                            <p class="moodsDEsc">
+                                Terrelique was born to manifest the trust, love, and ease that accompany feeling not only welcome, but actively included in a space.
+                            </p>
+                            <p class="moodsDown">set the mood</p>
+                            <svg class="downSvg" width="21" height="37" viewBox="0 0 21 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="10.5" y1="-2.18557e-08" x2="10.5" y2="35" stroke="#365B58"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.8708 22.5L10.5 35.0773L1.15083 22.5L0.5 23.0416L10.5 36.5L20.5 23.0329L19.8708 22.5Z" fill="#365B58" stroke="#365B58" stroke-width="0.5"/>
+                            </svg>
+                        </div>
+
+                    </div>
+                    {% for item in section.blocks %}
+                    <div class="whySectionItem whySectionItem_1" style="background-color:{{item.settings.background}}">
+                        <div class="whySectionItem__block">
+                            <img src="{{ item.settings.image | img_url: 'master' }}" alt="">
+                            <h3>{{ item.settings.title }}</h3>
+                            <p>
+                                {{ item.settings.desc }}
+                            </p>
+                            <a href="{{ item.settings.url }}" class="btn"><span class="text">SHOP SLIPS</span> <span class="decor" ></span></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+
+
+
+                </div>
+</div>
+{% schema %}
+    
+   
+    {
+        "name": "Moods",
+        "settings": [{
+                "type": "product",
+                "id": "products",
+                "label": "product"
+            }
+
+        ],
+        "blocks": [{
+            "name": "mood",
+            "type": "slide",
+            "settings": [{
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "desc",
+                    "label": "Description"
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Button link"
+                },
+                {
+                    "type": "color",
+                    "id": "background",
+                    "label": "Background color"
+                }
+
+            ]
+        }]
+
+    }
+
+{% endschema %}

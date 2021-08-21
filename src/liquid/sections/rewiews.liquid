@@ -1,6 +1,4 @@
-<!--Stamped - Begin Main Widget -->
 
-<!-- Stamped - End Main Widget -->
 <section class="rewSection">
             <div class="rewSection__wrap">
             <div 
@@ -15,7 +13,7 @@ data-product-title="{{product.title}}"
 data-product-type="{{product.type}}">   
 {{product.metafields.stamped.reviews}}   
 </div>
-                <div class="rewSection__header">
+                {% comment %} <div class="rewSection__header">
                     <div class="rewSection__headerItem">
                         <p>5.0</p>
                         <svg width="177" height="30" viewBox="0 0 177 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +92,12 @@ data-product-type="{{product.type}}">
                                 I love these slippers so much. I wear them almost every day and tell all my friends and family to buy them too! Addicting.
                             </div>
                         </div>
-                </div>
+                </div> {% endcomment %}
             </div>
 
         </section>
+<style>
+.fa-star, .fa-star-o, .fa-star-half-o, .stamped-fa-star, .stamped-fa-star-o, .stamped-fa-star-half-o {
+    color: #ffffff !important;
+}
+</style>

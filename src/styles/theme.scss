@@ -166,3 +166,174 @@
 .contact-form .btn span.decor {
     background: #FFF9EF;
 }
+
+.stamped-summary-actions-clear,
+.stamped-summary-actions-mobile-filter,
+.stamped-summary-actions-newquestion,
+.stamped-summary-actions-newreview {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 0px!important;
+    border: 1px solid #fff9ef;
+    font-weight: normal;
+}
+
+.stamped-summary-actions-newquestion:before,
+.stamped-summary-actions-newreview:before,
+.stamped-summary-actions-mobile-filter i:before,
+.stamped-summary-actions-clear:before {
+    color: #365b58;
+    content: none!important;
+}
+
+[data-count="0"] .stamped-summary-starrating i:before {
+    font-size: 30px!important;
+    color: #fff9ef;
+}
+
+.stamped-container ul.stamped-tabs li.active {
+    color: white!important;
+    background: none!important;
+}
+
+ul.stamped-tabs li.active {
+    border-color: #365b58 !important;
+    color: white !important;
+}
+
+li#tab-questions[data-count][data-new-tab]:after,
+li#tab-reviews[data-count]:after {
+    content: '' attr(data-count);
+    background: none!important;
+    padding: 2px 5px;
+    margin-left: 10px;
+}
+
+.stamped-form-label {
+    font-size: 14px;
+    line-height: 20px;
+    color: white;
+}
+
+.fa-star,
+.fa-star-o,
+.fa-star-half-o,
+.stamped-fa-star,
+.stamped-fa-star-o,
+.stamped-fa-star-half-o {
+    color: white !important;
+}
+
+[data-widget-style=profile] div.stamped-summary-ratings {
+    // width: 100%!important;
+    // padding: 0;
+    // margin: 0;
+    // margin-top: 5px;
+    // margin-left: 21px;
+    color: white!important;
+    // border: none!important;
+}
+
+.fa-check-circle-o:before,
+.fa-share-alt:before,
+.fa-thumbs-down:before,
+.fa-thumbs-up:before,
+.stamped-fa-check-circle-o:before,
+.stamped-fa-share-alt:before,
+.stamped-fa-thumbs-down:before,
+.stamped-fa-thumbs-up:before {
+    font-size: 18px;
+}
+
+[data-widget-style=profile] .stamped-summary-text-1 {
+    background: inherit!important;
+    font-size: 35px!important;
+    padding: 0!important;
+}
+
+.stamped-summary-actions-clear,
+.stamped-summary-actions-mobile-filter,
+.stamped-summary-actions-newquestion,
+.stamped-summary-actions-newreview {
+    font-size: 18px!important;
+    color: white!important;
+    border: 1px solid #ccd6e0;
+    padding: 15px 30px !important;
+    border-radius: 0px!important;
+    text-decoration: uppercase!important;
+    font-weight: 700;
+    box-shadow: 2px 3px 5px 0 #8888886b!important;
+}
+
+[data-widget-style=profile] .created {
+    float: right;
+    font-size: 18px!important;
+    color: white!important;
+}
+
+.stamped-form-label {
+    font-size: 18px!important;
+    color: white!important;
+}
+
+div.stamped-container ul.stamped-tabs,
+div.stamped-container ul.stamped-tabs li {
+    font-size: 21px!important;
+}
+
+#stamped-button-submit,
+input.stamped-button.stamped-button-primary.button.button-primary.btn.btn-primary {
+    background: inherit!important;
+    color: #fff;
+    border: 1px solid white!important;
+    width: auto;
+    font-size: 18px!important;
+    padding: 10px 20px;
+}
+
+.stamped-container[data-widget-show-product-variant=true] .stamped-review-product a,
+.stamped-container[data-widget-show-product-variant=true] .stamped-review-variant a {
+    text-decoration: none!important;
+    color: white!important;
+}
+
+.fa-check-circle-o:before,
+.fa-share-alt:before,
+.fa-thumbs-down:before,
+.fa-thumbs-up:before,
+.stamped-fa-check-circle-o:before,
+.stamped-fa-share-alt:before,
+.stamped-fa-thumbs-down:before,
+.stamped-fa-thumbs-up:before {
+    font-size: 18px!important;
+    color: white;
+}
+
+.fa-check-circle-o,
+.fa-share-alt,
+.fa-thumbs-down,
+.fa-thumbs-up,
+.stamped-fa-check-circle-o,
+.stamped-fa-share-alt,
+.stamped-fa-thumbs-down,
+.stamped-fa-thumbs-up {
+    color: white!important;
+    padding: 0;
+}
+
+.stamped-review-footer {
+    font-size: 14px!important;
+}
+
+.stamped-review .author {
+    font-size: 18px!important;
+}
+
+#stamped-main-widget {
+    margin: 0 !important;
+}
+
+.summary-rating-bar div[data-rating="0"] {
+    color: #294744!important;
+}

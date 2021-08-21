@@ -1,10 +1,10 @@
 <section class="prSection">
                 <h2 class="product__title">
-                    PR inquiries
+                    {{ page.title }}
                 </h2>
                 <div class="prSectionInfo">
                     <div class="prSectionInfo__text">
-                        We'd love to talk media. You can reach our PR team at <a href="">terrelique@nettepr.com</a>
+                        {{ page.content }}
                     </div>
                     <img src="{{ 'story.jpg' | asset_url }}" alt="" class="prSectionInfo__img prSectionInfo__img_un">
                     <img src="{{ 'story.jpg' | asset_url }}" alt="" class="prSectionInfo__img prSectionInfo__img_dos">

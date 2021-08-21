@@ -26,7 +26,7 @@
                             <img src="{{ 'slips.png' | asset_url }}" alt="">
 
                         </div>
-                        {% for product_option in product.options_with_values %}
+                        {% for product_option in settings.product.options_with_values %}
                         <div class="selectes">
                             <select class="select"  name="{{product_option.name}}">
                             <option disabled >Choose {{product_option.name}}</option>
@@ -44,7 +44,7 @@
                        
                     
                 </div>
-                <div class="addDuo">ADD DYNAMIC DUO - $96</div>
+                {% comment %} <div class="addDuo">ADD DYNAMIC DUO - $96</div> {% endcomment %}
 
                 {% schema %}
 {

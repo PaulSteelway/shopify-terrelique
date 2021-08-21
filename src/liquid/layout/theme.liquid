@@ -14,7 +14,13 @@
     <main>
         {% section 'header' %}{{ content_for_layout }} {% section 'footer' %}
     </main>
-    
+    <script>
+    let variantes = []
+    {%for variant in settings.product.variants%}
+    variantes.push({"key":"{{variant.id}}", "value":"{{variant.title}}"})
+        
+    {%endfor%}    
+    </script>
     {% section 'svg' %} {% section 'scripts' %}
   
     <script src="{{ 'theme.js' | asset_url }}"></script>
